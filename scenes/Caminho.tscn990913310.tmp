@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bombcx11p0t8d"]
+
+[ext_resource type="PackedScene" uid="uid://78uqvxdlrdda" path="res://scenes/Rua.tscn" id="1_lvp7x"]
+[ext_resource type="PackedScene" uid="uid://cr3f1yc7yhng1" path="res://scenes/Carro.tscn" id="2_fumcd"]
+[ext_resource type="Script" uid="uid://c3wybkpgtjeh8" path="res://scripts/caminho_follow.gd" id="3_8bcyk"]
+
+[sub_resource type="Curve2D" id="Curve2D_qbsmt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -27.272728, 184.00417, 0, 0, 0, 0, 916.3306, 181.99997)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_fumcd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -27.272728, 184.00417, 0, 0, 0, 0, -28.566116, -507.06296)
+}
+point_count = 2
+
+[node name="Caminho" type="Node2D" unique_id=49086955]
+
+[node name="Rua" parent="." unique_id=1970855512 instance=ExtResource("1_lvp7x")]
+position = Vector2(-1, 3)
+
+[node name="Santana" type="Path2D" parent="." unique_id=1191847314]
+position = Vector2(0.5964121, 1.3815646)
+scale = Vector2(1.0852017, 0.99790365)
+curve = SubResource("Curve2D_qbsmt")
+
+[node name="SantanaCaminho" type="PathFollow2D" parent="Santana" unique_id=770696876]
+position = Vector2(-27.272728, 184.00417)
+rotation = -0.0021239785
+script = ExtResource("3_8bcyk")
+
+[node name="Carro" parent="Santana/SantanaCaminho" unique_id=1812790829 instance=ExtResource("2_fumcd")]
+position = Vector2(0, -7.1525574e-06)
+
+[node name="SantaIsabel" type="Path2D" parent="." unique_id=183893488]
+position = Vector2(252, 485)
+scale = Vector2(1.0852017, 0.99790365)
+curve = SubResource("Curve2D_fumcd")
+
+[node name="SantaIsabelCaminho" type="PathFollow2D" parent="SantaIsabel" unique_id=256537198]
+position = Vector2(-27.272728, 184.00417)
+rotation = -1.572668
+script = ExtResource("3_8bcyk")
+velocidade = 400
+
+[node name="Carro" parent="SantaIsabel/SantaIsabelCaminho" unique_id=980456076 instance=ExtResource("2_fumcd")]
+position = Vector2(0, -7.1525574e-06)
