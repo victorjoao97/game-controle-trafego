@@ -19,7 +19,7 @@ _data = {
 }
 point_count = 2
 
-[node name="Caminho" type="Node2D" unique_id=49086955]
+[node name="Fase1" type="Node2D" unique_id=49086955]
 script = ExtResource("1_8bcyk")
 
 [node name="Rua" parent="." unique_id=1970855512 instance=ExtResource("1_lvp7x")]
@@ -34,7 +34,7 @@ position = Vector2(-27.272728, 184.00417)
 rotation = -0.0021239785
 loop = false
 script = ExtResource("3_8bcyk")
-velocidade = 50
+velocidade = 250
 
 [node name="Carro" parent="Santana/SantanaCaminho" unique_id=1812790829 instance=ExtResource("2_fumcd")]
 position = Vector2(0, -7.1525574e-06)
@@ -49,13 +49,12 @@ position = Vector2(-27.272728, 184.00417)
 rotation = -1.5726678
 loop = false
 script = ExtResource("3_8bcyk")
-velocidade = 100
+velocidade = 500
 
 [node name="Carro" parent="SantaIsabel/SantaIsabelCaminho" unique_id=980456076 instance=ExtResource("2_fumcd")]
 position = Vector2(0, -7.1525574e-06)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=880795794]
-layer = 2
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1723722329]
 layout_mode = 3
@@ -91,6 +90,15 @@ offset_right = 63.0
 offset_bottom = 470.0
 text = "Iniciar"
 
+[node name="Limpar" type="Button" parent="CanvasLayer/Control" unique_id=1429286160]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 473.0
+offset_right = 73.0
+offset_bottom = 504.0
+text = "Limpar"
+
 [connection signal="perdeu" from="Santana/SantanaCaminho" to="." method="_on_santana_caminho_perdeu"]
 [connection signal="gui_input" from="CanvasLayer/Control/TextureRect" to="CanvasLayer/Control" method="_on_control_gui_input"]
 [connection signal="pressed" from="CanvasLayer/Control/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Limpar" to="." method="_on_limpar_pressed"]
