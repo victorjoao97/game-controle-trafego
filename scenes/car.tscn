@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bh0fwt3by4y6d"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mlx6q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlx6q"]
+
+[node name="Car" type="CharacterBody2D" unique_id=1676784811]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=873226586]
+position = Vector2(-1.0728836e-06, -9.536743e-07)
+scale = Vector2(19.999998, 20)
+texture = SubResource("PlaceholderTexture2D_mlx6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935660408]
+shape = SubResource("CircleShape2D_mlx6q")

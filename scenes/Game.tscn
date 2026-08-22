@@ -1,55 +1,10 @@
 [gd_scene format=3 uid="uid://b6t0vk21godp"]
 
-[ext_resource type="PackedScene" uid="uid://bombcx11p0t8d" path="res://scenes/Caminho.tscn" id="1_ibkli"]
-[ext_resource type="Script" uid="uid://dv2yh5y72fiub" path="res://scripts/game.gd" id="1_qbsmt"]
+[ext_resource type="Script" uid="uid://bah0o1hefi7sq" path="res://scripts/game.gd" id="1_ibkli"]
+[ext_resource type="PackedScene" uid="uid://bh0fwt3by4y6d" path="res://scenes/car.tscn" id="2_qbsmt"]
 
 [node name="Game" type="Node2D" unique_id=59962342]
-script = ExtResource("1_qbsmt")
+script = ExtResource("1_ibkli")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1182872762]
-position = Vector2(480, 322)
-
-[node name="Caminho" parent="." unique_id=49086955 instance=ExtResource("1_ibkli")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1820255440]
-
-[node name="Perdeu" type="Control" parent="CanvasLayer" unique_id=736839023]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Perdeu" unique_id=1328429489]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.5019608)
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Perdeu" unique_id=653271698]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Perdeu/CenterContainer" unique_id=891778084]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Perdeu/CenterContainer/VBoxContainer" unique_id=1821674408]
-layout_mode = 2
-text = "Você perdeu!"
-horizontal_alignment = 1
-
-[node name="TentarNovamente" type="Button" parent="CanvasLayer/Perdeu/CenterContainer/VBoxContainer" unique_id=1203535248]
-layout_mode = 2
-text = "Tentar novamente"
-
-[connection signal="perdeu" from="Caminho" to="." method="_on_caminho_perdeu"]
-[connection signal="pressed" from="CanvasLayer/Perdeu/CenterContainer/VBoxContainer/TentarNovamente" to="." method="_on_tentar_novamente_pressed"]
+[node name="Car" parent="." unique_id=1676784811 instance=ExtResource("2_qbsmt")]
+position = Vector2(11, 86)
