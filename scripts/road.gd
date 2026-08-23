@@ -1,30 +1,27 @@
-class_name Road extends Node
+class_name Road
+extends RefCounted
 
-enum ROAD_TYPE {
-	STREET
-}
-enum CARDINAL_DIRECTION {
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST
-}
+## Segmento dirigido entre dois cruzamentos. Seus pontos são a fonte única
+## para o desenho e para a área de navegação.
+var id: String
+var street_id: String
+var from_intersection_id: String
+var to_intersection_id: String
+var points: PackedVector2Array
+var is_visual_owner := true
 
-var road_type: ROAD_TYPE
-var road_id: String
-var road_units: float
-var next_roads: Array[Road]
-var cardinal_direction: CARDINAL_DIRECTION
 
-func get_direction() -> Vector2:
-	match cardinal_direction:
-		CARDINAL_DIRECTION.EAST:
-			return Vector2.RIGHT
-		CARDINAL_DIRECTION.WEST:
-			return Vector2.LEFT
-		CARDINAL_DIRECTION.NORTH:
-			return Vector2.UP
-		CARDINAL_DIRECTION.SOUTH:
-			return Vector2.DOWN
-
-	return Vector2.ZERO
+func _init(
+		p_id: String = "",
+		p_street_id: String = "",
+		p_from: String = "",
+		p_to: String = "",
+		p_points: PackedVector2Array = PackedVector2Array(),
+		p_is_visual_owner: bool = true
+	) -> void:
+	id = p_id
+	street_id = p_street_id
+	from_intersection_id = p_from
+	to_intersection_id = p_to
+	points = p_points
+	is_visual_owner = p_is_visual_owner

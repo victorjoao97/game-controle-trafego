@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://rm65ttwfu8sv"]
+
+[ext_resource type="Script" uid="uid://dmprly5ily80t" path="res://scripts/semaphore.gd" id="1_semaphore"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlx6q"]
+size = Vector2(12, 68)
+
+[node name="Semaphore" type="StaticBody2D" unique_id=1925096066]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_semaphore")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=566067559]
+shape = SubResource("RectangleShape2D_mlx6q")

@@ -19,17 +19,16 @@ script = ExtResource("3_spawner")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1127749566]
 
-[node name="StatusLabel" type="Label" parent="CanvasLayer" unique_id=103043212]
-unique_name_in_owner = true
-offset_left = 20.0
-offset_top = 18.0
-offset_right = 760.0
-offset_bottom = 48.0
-mouse_filter = 2
-theme_override_colors/font_color = Color(0.9, 0.93, 0.98, 1)
-text = "Clique nos semáforos para alternar entre verde e vermelho."
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=390384631]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 558.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="CanvasLayer" unique_id=1330734151]
+[node name="StartButton" type="Button" parent="CanvasLayer/Control" unique_id=1330734151]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -38,12 +37,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -92.0
-offset_top = -74.0
+offset_top = -84.0
 offset_right = 92.5
-offset_bottom = -24.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Jogar"
+text = "Play"
 
 [connection signal="timeout" from="CarSpawner/Timer" to="CarSpawner" method="_on_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/StartButton" to="." method="_on_start_button_pressed"]

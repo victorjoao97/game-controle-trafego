@@ -1,15 +1,36 @@
 [gd_scene format=3 uid="uid://bh0fwt3by4y6d"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mlx6q"]
+[ext_resource type="Script" uid="uid://ccgsysjbjmjcb" path="res://scripts/car.gd" id="1_c35m8"]
+[ext_resource type="Texture2D" uid="uid://biabfejpc46rg" path="res://assets/white.png" id="2_qt2eu"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mlx6q"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c35m8"]
+radius = 1.9999988
+height = 13.999991
 
 [node name="Car" type="CharacterBody2D" unique_id=1676784811]
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_c35m8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=873226586]
-position = Vector2(-1.0728836e-06, -9.536743e-07)
-scale = Vector2(19.999998, 20)
-texture = SubResource("PlaceholderTexture2D_mlx6q")
+position = Vector2(4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.5, 0.18749997)
+texture = ExtResource("2_qt2eu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935660408]
-shape = SubResource("CircleShape2D_mlx6q")
+rotation = 1.569707
+shape = SubResource("CapsuleShape2D_c35m8")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1302677782]
+path_desired_distance = 4.0
+target_desired_distance = 6.0
+
+[node name="ForwardDetector" type="RayCast2D" parent="." unique_id=452625005]
+target_position = Vector2(72, 0)
+
+[node name="StuckTimer" type="Timer" parent="." unique_id=1003365798]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="StuckTimer" to="." method="_on_stuck_timer_timeout"]

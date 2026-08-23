@@ -33,6 +33,11 @@ version_control/autoload_on_startup=true
 carros=""
 semaforos=""
 
+[layer_names]
+
+2d_physics/layer_1="car"
+2d_physics/layer_2="block"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
