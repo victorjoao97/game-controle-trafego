@@ -1,94 +1,627 @@
-[gd_scene format=3 uid="uid://b6t0vk21godp"]
+[gd_scene format=4 uid="uid://b6t0vk21godp"]
 
-[ext_resource type="PackedScene" uid="uid://bombcx11p0t8d" path="res://scenes/Fase1.tscn" id="1_ibkli"]
-[ext_resource type="Script" uid="uid://dv2yh5y72fiub" path="res://scripts/game.gd" id="1_qbsmt"]
+[ext_resource type="Script" uid="uid://dv2yh5y72fiub" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="TileSet" uid="uid://loc04wlschvk" path="res://resources/tileset_rpg.tres" id="2_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://ohc1r2ion7qs" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bh0fwt3by4y6d" path="res://scenes/car.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bk721yc21m0u1" path="res://scenes/light.tscn" id="3_p57ef"]
+[ext_resource type="Texture2D" uid="uid://c7k0650jmmmxb" path="res://assets/arrow.png" id="5_iywne"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_yqjtg"]
+tile_data = PackedInt32Array(0, 65536, 15, 65536, 65536, 16, 131072, 65536, 17, 1, 65536, 15, 65537, 65536, 16, 131073, 65536, 17, 2, 65536, 15, 65538, 65536, 16, 131074, 65536, 17)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_lnu2h"]
+tile_data = PackedInt32Array(0, 131072, 17, 65536, 131072, 17, 131072, 524288, 17, 196608, 65536, 16, 262144, 524288, 16, 327680, 131072, 17, 393216, 131072, 17, 1, 196608, 17, 65537, 196608, 17, 131073, 196608, 17, 196609, 131072, 15, 262145, 196608, 17, 327681, 196608, 17, 393217, 196608, 17, 2, 262144, 17, 65538, 262144, 17, 131074, 458752, 17, 196610, 65536, 16, 262146, 458752, 16, 327682, 262144, 17, 393218, 262144, 17)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_lbhrr"]
+tile_data = PackedInt32Array(0, 131072, 17, 1, 196608, 17, 2, 262144, 17)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
+texture = ExtResource("2_lnu2h")
+separation = Vector2i(1, 1)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 1
+0:0/0/terrains_peering_bit/bottom_right_corner = 1
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 1
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 1
+2:0/0/terrains_peering_bit/bottom_left_corner = 1
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+24:0/0 = 0
+25:0/0 = 0
+26:0/0 = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 1
+0:1/0/terrains_peering_bit/bottom_right_corner = 1
+0:1/0/terrains_peering_bit/top_right_corner = 1
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 1
+1:1/0/terrains_peering_bit/bottom_right_corner = 1
+1:1/0/terrains_peering_bit/bottom_left_corner = 1
+1:1/0/terrains_peering_bit/top_left_corner = 1
+1:1/0/terrains_peering_bit/top_right_corner = 1
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 1
+2:1/0/terrains_peering_bit/bottom_left_corner = 1
+2:1/0/terrains_peering_bit/top_left_corner = 1
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+24:1/0 = 0
+25:1/0 = 0
+26:1/0 = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 1
+0:2/0/terrains_peering_bit/top_right_corner = 1
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 1
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 1
+2:2/0/terrains_peering_bit/top_left_corner = 1
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+24:2/0 = 0
+25:2/0 = 0
+26:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+24:3/0 = 0
+25:3/0 = 0
+26:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+24:4/0 = 0
+25:4/0 = 0
+26:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+24:5/0 = 0
+25:5/0 = 0
+26:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+22:6/0 = 0
+23:6/0 = 0
+24:6/0 = 0
+25:6/0 = 0
+26:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+22:7/0 = 0
+23:7/0 = 0
+24:7/0 = 0
+25:7/0 = 0
+26:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+22:8/0 = 0
+23:8/0 = 0
+24:8/0 = 0
+25:8/0 = 0
+26:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+23:9/0 = 0
+24:9/0 = 0
+25:9/0 = 0
+26:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+21:10/0 = 0
+22:10/0 = 0
+23:10/0 = 0
+24:10/0 = 0
+25:10/0 = 0
+26:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+20:11/0 = 0
+21:11/0 = 0
+22:11/0 = 0
+23:11/0 = 0
+24:11/0 = 0
+25:11/0 = 0
+26:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+20:12/0 = 0
+21:12/0 = 0
+22:12/0 = 0
+23:12/0 = 0
+24:12/0 = 0
+25:12/0 = 0
+26:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+20:13/0 = 0
+21:13/0 = 0
+22:13/0 = 0
+23:13/0 = 0
+24:13/0 = 0
+25:13/0 = 0
+26:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+23:14/0 = 0
+24:14/0 = 0
+25:14/0 = 0
+26:14/0 = 0
+0:15/0 = 0
+1:15/next_alternative_id = 3
+1:15/0 = 0
+1:15/0/terrain_set = 0
+1:15/1 = 1
+2:15/0 = 0
+2:15/0/terrain_set = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
+20:15/0 = 0
+21:15/0 = 0
+22:15/0 = 0
+23:15/0 = 0
+24:15/0 = 0
+25:15/0 = 0
+26:15/0 = 0
+0:16/0 = 0
+1:16/next_alternative_id = 3
+1:16/0 = 0
+1:16/0/terrain_set = 0
+1:16/0/terrain = 0
+1:16/0/terrains_peering_bit/right_side = 0
+1:16/0/terrains_peering_bit/bottom_side = 0
+1:16/0/terrains_peering_bit/left_side = 0
+1:16/0/terrains_peering_bit/top_side = 0
+1:16/1 = 1
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+18:16/0 = 0
+19:16/0 = 0
+20:16/0 = 0
+21:16/0 = 0
+22:16/0 = 0
+23:16/0 = 0
+24:16/0 = 0
+25:16/0 = 0
+26:16/0 = 0
+0:17/0 = 0
+1:17/next_alternative_id = 3
+1:17/0 = 0
+1:17/0/terrain_set = 0
+1:17/1 = 1
+2:17/0 = 0
+2:17/0/terrain_set = 0
+3:17/0 = 0
+3:17/0/terrain_set = 0
+3:17/0/terrain = 0
+3:17/0/terrains_peering_bit/right_side = 0
+3:17/0/terrains_peering_bit/bottom_side = 0
+3:17/0/terrains_peering_bit/left_side = 0
+3:17/0/terrains_peering_bit/top_side = 0
+4:17/0 = 0
+4:17/0/terrain_set = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+18:17/0 = 0
+19:17/0 = 0
+20:17/0 = 0
+21:17/0 = 0
+22:17/0 = 0
+23:17/0 = 0
+24:17/0 = 0
+25:17/0 = 0
+26:17/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
+texture = ExtResource("5_iywne")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iywne"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "street"
+terrain_set_0/terrain_0/color = Color(0.63568056, 0.8675938, 0.9658628, 1)
+terrain_set_0/terrain_1/name = "grass"
+terrain_set_0/terrain_1/color = Color(0, 1, 0, 1)
+sources/0 = SubResource("TileSetAtlasSource_lbhrr")
+sources/1 = SubResource("TileSetAtlasSource_p57ef")
+pattern_0 = SubResource("TileMapPattern_yqjtg")
+pattern_1 = SubResource("TileMapPattern_lnu2h")
+pattern_2 = SubResource("TileMapPattern_lbhrr")
 
 [node name="Game" type="Node2D" unique_id=59962342]
-script = ExtResource("1_qbsmt")
+script = ExtResource("1_yqjtg")
+car_scene = ExtResource("3_lnu2h")
+light_scene = ExtResource("3_p57ef")
+destination_tile = Array[Vector2i]([Vector2i(-2, 10), Vector2i(9, 11), Vector2i(19, 22), Vector2i(39, 11)])
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1182872762]
-position = Vector2(480, 322)
+[node name="Map" type="TileMapLayer" parent="." unique_id=139801600]
+tile_map_data = PackedByteArray("AAAIAAYAAAAHABAAAAAJAAYAAAABABEAAAAKAAYAAAABABEAAAALAAYAAAABABEAAAAJAAUAAAABAA8AAAAKAAUAAAABAA8AAAALAAUAAAABAA8AAAAIAAAAAAAEABEAAAAIAAEAAAAEABEAAAAIAAIAAAAEABEAAAAIAAMAAAAEABEAAAAIAAQAAAAEABEAAAAIAAUAAAAHABEAAAAMAAUAAAABAA8AAAAMAAYAAAABABEAAAANAAUAAAABAA8AAAANAAYAAAABABEAAAAOAAUAAAABAA8AAAAOAAYAAAABABEAAAAPAAUAAAABAA8AAAAPAAYAAAABABEAAAAQAAUAAAABAA8AAAAQAAYAAAABABEAAAARAAUAAAABAA8AAAARAAYAAAABABEAAAASAAUAAAABAA8AAAASAAYAAAABABEAAAATAAAAAAACABEAAAATAAEAAAACABEAAAATAAIAAAACABEAAAATAAMAAAACABEAAAATAAQAAAACABEAAAATAAUAAAAIABEAAAATAAYAAAAIABAAAAATAAgAAAACABEAAAATAAkAAAACABEAAAATAAoAAAAIABEAAAATAAsAAAAIABAAAAATAAwAAAACABEAAAATAA0AAAACABEAAAATAA4AAAACABEAAAATAA8AAAACABEAAAATABAAAAACABEAAAATABEAAAAIABEAAAATABIAAAAIABAAAAATABMAAAACABEAAAATABQAAAACABEAAAATABUAAAACABEAAAATABYAAAACABEAAAAUAAgAAAAEABEAAAAUAAkAAAAEABEAAAAUAAoAAAAHABEAAAAUAAsAAAAHABAAAAAUAAwAAAAEABEAAAAUAA0AAAAEABEAAAAUAA4AAAAEABEAAAAUAA8AAAAEABEAAAAUABAAAAAEABEAAAAUABEAAAAHABEAAAAUABIAAAAHABAAAAAUABMAAAAEABEAAAAUABQAAAAEABEAAAAUABUAAAAEABEAAAAUABYAAAAEABEAAAAHAAAAAAACABEAAAAHAAEAAAACABEAAAAHAAIAAAACABEAAAAHAAMAAAACABEAAAAHAAQAAAACABEAAAAHAAUAAAAIABEAAAAHAAYAAAAIABAAAAAVAAUAAAABAA8AAAAVAAYAAAABABEAAAAWAAUAAAABAA8AAAAWAAYAAAABABEAAAAXAAUAAAABAA8AAAAXAAYAAAABABEAAAAYAAUAAAABAA8AAAAYAAYAAAABABEAAAAZAAUAAAABAA8AAAAZAAYAAAABABEAAAAaAAUAAAABAA8AAAAaAAYAAAABABEAAAAbAAUAAAABAA8AAAAbAAYAAAABABEAAAAcAAUAAAABAA8AAAAcAAYAAAABABEAAAAdAAUAAAABAA8AAAAdAAYAAAABABEAAAAeAAUAAAABAA8AAAAeAAYAAAABABEAAAAfAAUAAAABAA8AAAAfAAYAAAABABEAAAAgAAUAAAABAA8AAAAgAAYAAAABABEAAAAhAAUAAAABAA8AAAAhAAYAAAABABEAAAAiAAUAAAABAA8AAAAiAAYAAAABABEAAAAjAAUAAAABAA8AAAAjAAYAAAABABEAAAAkAAUAAAABAA8AAAAkAAYAAAABABEAAAAlAAUAAAABAA8AAAAlAAYAAAABABEAAAAmAAUAAAABAA8AAAAmAAYAAAABABEAAAAUAAAAAAAEABEAAAAUAAEAAAAEABEAAAAUAAIAAAAEABEAAAAUAAMAAAAEABEAAAAUAAQAAAAEABEAAAAUAAUAAAAHABEAAAAUAAYAAAAHABAAAAAHAAcAAAACABEAAAAHAAgAAAACABEAAAAHAAkAAAACABEAAAAHAAoAAAAIABEAAAAHAAsAAAAIABAAAAAHAAwAAAACABEAAAAHAA0AAAACABEAAAAHAA4AAAACABEAAAAHAA8AAAACABEAAAAHABAAAAACABEAAAAHABEAAAAIABEAAAAHABIAAAAIABAAAAAHABMAAAACABEAAAAHABQAAAACABEAAAAHABUAAAACABEAAAAIAAoAAAAHABEAAAAIAAsAAAAHABAAAAAIAAwAAAAEABEAAAAIAA0AAAAEABEAAAAIAA4AAAAEABEAAAAIAA8AAAAEABEAAAAIABAAAAAEABEAAAAIABEAAAAHABEAAAAIABIAAAAHABAAAAAIABMAAAAEABEAAAAIABQAAAAEABEAAAAIABUAAAAEABEAAAATAAcAAAACABEAAAAUAAcAAAAEABEAAAAIABYAAAAEABEAAAAHABYAAAACABEAAAAnAAUAAAABAA8AAAAnAAYAAAABABEAAAD+/woAAAABAA8AAAD//woAAAABAA8AAAD//wsAAAABABEAAAAAAAoAAAABAA8AAAAAAAsAAAABABEAAAABAAoAAAABAA8AAAABAAsAAAABABEAAAACAAoAAAABAA8AAAACAAsAAAABABEAAAADAAoAAAABAA8AAAADAAsAAAABABEAAAAEAAoAAAABAA8AAAAEAAsAAAABABEAAAAFAAoAAAABAA8AAAAFAAsAAAABABEAAAAGAAoAAAABAA8AAAAGAAsAAAABABEAAAAJAAoAAAABAA8AAAAJAAsAAAABABEAAAAKAAoAAAABAA8AAAAKAAsAAAABABEAAAALAAoAAAABAA8AAAALAAsAAAABABEAAAAMAAoAAAABAA8AAAAMAAsAAAABABEAAAANAAoAAAABAA8AAAANAAsAAAABABEAAAAOAAoAAAABAA8AAAAOAAsAAAABABEAAAAPAAoAAAABAA8AAAAPAAsAAAABABEAAAAQAAoAAAABAA8AAAAQAAsAAAABABEAAAARAAoAAAABAA8AAAARAAsAAAABABEAAAASAAoAAAABAA8AAAASAAsAAAABABEAAAAVAAoAAAABAA8AAAAVAAsAAAABABEAAAAWAAoAAAABAA8AAAAWAAsAAAABABEAAAAXAAoAAAABAA8AAAAXAAsAAAABABEAAAAYAAoAAAABAA8AAAAYAAsAAAABABEAAAAZAAoAAAABAA8AAAAZAAsAAAABABEAAAAaAAoAAAABAA8AAAAaAAsAAAABABEAAAAbAAoAAAABAA8AAAAbAAsAAAABABEAAAAcAAoAAAABAA8AAAAcAAsAAAABABEAAAAdAAoAAAABAA8AAAAdAAsAAAABABEAAAAeAAoAAAABAA8AAAAeAAsAAAABABEAAAAfAAoAAAABAA8AAAAfAAsAAAABABEAAAAgAAoAAAABAA8AAAAgAAsAAAABABEAAAAhAAoAAAABAA8AAAAhAAsAAAABABEAAAAiAAoAAAABAA8AAAAiAAsAAAABABEAAAAjAAoAAAABAA8AAAAjAAsAAAABABEAAAAkAAoAAAABAA8AAAAkAAsAAAABABEAAAAlAAoAAAABAA8AAAAlAAsAAAABABEAAAAmAAoAAAABAA8AAAAmAAsAAAABABEAAAAnAAoAAAABAA8AAAAnAAsAAAABABEAAAD+/xEAAAABAA8AAAD+/xIAAAABABEAAAD//xEAAAABAA8AAAD//xIAAAABABEAAAAAABEAAAABAA8AAAAAABIAAAABABEAAAABABEAAAABAA8AAAABABIAAAABABEAAAACABEAAAABAA8AAAACABIAAAABABEAAAADABEAAAABAA8AAAADABIAAAABABEAAAAEABEAAAABAA8AAAAEABIAAAABABEAAAAFABEAAAABAA8AAAAFABIAAAABABEAAAAGABEAAAABAA8AAAAGABIAAAABABEAAAAJABEAAAABAA8AAAAJABIAAAABABEAAAAKABEAAAABAA8AAAAKABIAAAABABEAAAALABEAAAABAA8AAAALABIAAAABABEAAAAMABEAAAABAA8AAAAMABIAAAABABEAAAANABEAAAABAA8AAAANABIAAAABABEAAAAOABEAAAABAA8AAAAOABIAAAABABEAAAAPABEAAAABAA8AAAAPABIAAAABABEAAAAQABEAAAABAA8AAAAQABIAAAABABEAAAARABEAAAABAA8AAAARABIAAAABABEAAAASABEAAAABAA8AAAASABIAAAABABEAAAAVABEAAAABAA8AAAAVABIAAAABABEAAAAWABEAAAABAA8AAAAWABIAAAABABEAAAAXABEAAAABAA8AAAAXABIAAAABABEAAAAYABEAAAABAA8AAAAYABIAAAABABEAAAAZABEAAAABAA8AAAAZABIAAAABABEAAAAaABEAAAABAA8AAAAaABIAAAABABEAAAAbABEAAAABAA8AAAAbABIAAAABABEAAAAcABEAAAABAA8AAAAcABIAAAABABEAAAAdABEAAAABAA8AAAAdABIAAAABABEAAAAeABEAAAABAA8AAAAeABIAAAABABEAAAAfABEAAAABAA8AAAAfABIAAAABABEAAAAgABEAAAABAA8AAAAgABIAAAABABEAAAAhABEAAAABAA8AAAAhABIAAAABABEAAAAiABEAAAABAA8AAAAiABIAAAABABEAAAAjABEAAAABAA8AAAAjABIAAAABABEAAAAkABEAAAABAA8AAAAkABIAAAABABEAAAAlABEAAAABAA8AAAAlABIAAAABABEAAAAmABEAAAABAA8AAAAmABIAAAABABEAAAAnABEAAAABAA8AAAAnABIAAAABABEAAAAHAP//AAACABEAAAAIAP//AAAEABEAAAATAP//AAACABEAAAAUAP//AAAEABEAAAAHABcAAAACABEAAAAIABcAAAAEABEAAAATABcAAAACABEAAAAUABcAAAAEABEAAAAoAAoAAAABAA8AAAAoAAsAAAABABEAAAAoABEAAAABAA8AAAAoABIAAAABABEAAAD+/wsAAAABABEAAAD+/wUAAAABAA8AAAD+/wYAAAABABEAAAD//wUAAAABAA8AAAD//wYAAAABABEAAAAAAAUAAAABAA8AAAAAAAYAAAABABEAAAABAAUAAAABAA8AAAABAAYAAAABABEAAAACAAUAAAABAA8AAAACAAYAAAABABEAAAADAAUAAAABAA8AAAADAAYAAAABABEAAAAEAAUAAAABAA8AAAAEAAYAAAABABEAAAAFAAUAAAABAA8AAAAFAAYAAAABABEAAAAGAAYAAAABABEAAAAIAAcAAAAEABEAAAAIAAgAAAAEABEAAAAIAAkAAAAEABEAAAAGAAUAAAABAA8AAAA=")
+tile_set = ExtResource("2_lbhrr")
 
-[node name="Caminho" parent="." unique_id=49086955 instance=ExtResource("1_ibkli")]
+[node name="Terrain" type="TileMapLayer" parent="." unique_id=1974668642]
+tile_set = SubResource("TileSet_iywne")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1820255440]
+[node name="SpawnerTimer" type="Timer" parent="." unique_id=1254679489]
+unique_name_in_owner = true
+autostart = true
 
-[node name="Perdeu" type="Control" parent="CanvasLayer" unique_id=736839023]
-visible = false
-layout_mode = 3
-anchors_preset = 15
+[node name="Markers" type="Node" parent="." unique_id=109045889]
+unique_name_in_owner = true
+
+[node name="Marker2D2" type="Marker2D" parent="Markers" unique_id=1393740818]
+position = Vector2(11, 98)
+
+[node name="Marker2D3" type="Marker2D" parent="Markers" unique_id=1558749023]
+position = Vector2(121, -10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1021709373]
+
+[node name="GameDataLabel" type="Label" parent="CanvasLayer" unique_id=322228082]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cars"
+
+[node name="GameDataLabel2" type="Label" parent="CanvasLayer" unique_id=1721893175]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -29.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Cars by tiles"
+autowrap_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Perdeu" unique_id=1328429489]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.5019608)
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Perdeu" unique_id=653271698]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Perdeu/CenterContainer" unique_id=891778084]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Perdeu/CenterContainer/VBoxContainer" unique_id=1821674408]
-layout_mode = 2
-text = "Você perdeu!"
-horizontal_alignment = 1
-
-[node name="TentarNovamente" type="Button" parent="CanvasLayer/Perdeu/CenterContainer/VBoxContainer" unique_id=1203535248]
-layout_mode = 2
-text = "Tentar novamente"
-
-[node name="Ganhou" type="Control" parent="CanvasLayer" unique_id=855531812]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Ganhou" unique_id=1488580436]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.5019608)
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Ganhou" unique_id=1228146926]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Ganhou/CenterContainer" unique_id=1378892273]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Ganhou/CenterContainer/VBoxContainer" unique_id=625142359]
-layout_mode = 2
-text = "Você ganhou!"
-horizontal_alignment = 1
-
-[node name="ProximaFase" type="Button" parent="CanvasLayer/Ganhou/CenterContainer/VBoxContainer" unique_id=1024952190]
-layout_mode = 2
-text = "Próxima fase"
-
-[connection signal="ganhou" from="Caminho" to="." method="_on_caminho_ganhou"]
-[connection signal="perdeu" from="Caminho" to="." method="_on_caminho_perdeu"]
-[connection signal="pressed" from="CanvasLayer/Perdeu/CenterContainer/VBoxContainer/TentarNovamente" to="." method="_on_tentar_novamente_pressed"]
+[connection signal="timeout" from="SpawnerTimer" to="." method="_on_spawner_timer_timeout"]
