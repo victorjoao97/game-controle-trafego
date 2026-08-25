@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bk721yc21m0u1"]
+
+[ext_resource type="Script" uid="uid://dk3xahjn138xl" path="res://scripts/light.gd" id="1_2e2gu"]
+[ext_resource type="Texture2D" uid="uid://dsxni3d0jnkct" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0411.png" id="1_24oxn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlx6q"]
+size = Vector2(16, 16)
+
+[node name="Light" type="StaticBody2D" unique_id=657530648]
+script = ExtResource("1_2e2gu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=226825385]
+texture = ExtResource("1_24oxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=276319503]
+shape = SubResource("RectangleShape2D_mlx6q")
+
+[node name="Timer" type="Timer" parent="." unique_id=1867997768]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
